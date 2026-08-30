@@ -3,10 +3,20 @@ import { Footer } from './Footer'
 
 interface SearchResultsProps {
   query: string
+  visited: ReadonlySet<string>
   onSearch: (query: string) => void
+  onOpenArticle: (slug: string) => void
 }
 
-export function SearchResults({ query, onSearch }: SearchResultsProps) {
+const articleHref = (query: string, slug: string) =>
+  `/?${new URLSearchParams({ q: query, a: slug }).toString()}`
+
+export function SearchResults({
+  query,
+  visited,
+  onSearch,
+  onOpenArticle,
+}: SearchResultsProps) {
   return (
     <>
       <nav className="results-tabs" aria-label="Tipos de búsqueda">
@@ -29,8 +39,17 @@ export function SearchResults({ query, onSearch }: SearchResultsProps) {
 
           <ol className="result-list">
             {searchResults.map((result) => (
-              <li key={result.title}>
-                <a className="result-title" href={`https://${result.url}`}>
+              <li key={result.slug}>
+                <a
+                  className={`result-title${
+                    visited.has(result.slug) ? ' result-title--visited' : ''
+                  }`}
+                  href={articleHref(query, result.slug)}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    onOpenArticle(result.slug)
+                  }}
+                >
                   {result.title}
                 </a>
                 <p>{result.snippet}</p>

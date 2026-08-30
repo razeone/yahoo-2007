@@ -1,0 +1,523 @@
+/*
+ * Páginas de destino. Un mismo esqueleto con cinco pieles distintas: cada
+ * sitio ficticio define sus variables y algún detalle estructural propio.
+ */
+
+.article-site {
+  --page-bg: #fff;
+  --frame-bg: #fff;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --link: #14418c;
+  --rule: #d4d4d4;
+  --accent: #b3560f;
+  --band-bg: #fff;
+  --band-ink: #1a1a1a;
+  --band-rule: #d4d4d4;
+  --box-bg: #f6f6f6;
+  --body-font: Arial, Helvetica, sans-serif;
+  --head-font: Georgia, 'Times New Roman', serif;
+
+  min-height: 100vh;
+  padding: 0 0 24px;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--body-font);
+  font-size: 12px;
+}
+
+.article-frame {
+  width: 780px;
+  margin: 0 auto;
+  background: var(--frame-bg);
+}
+
+.article-site a {
+  color: var(--link);
+}
+
+.article-site a:hover,
+.article-site a:focus-visible {
+  color: var(--accent);
+}
+
+/* Cabecera del sitio */
+.site-band {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 14px 9px;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  border-bottom: 2px solid var(--band-rule);
+}
+
+/* Compuesto para ganarle en especificidad a `.article-site a`. */
+.site-band .site-name {
+  display: block;
+  font-family: var(--head-font);
+  font-size: 27px;
+  font-weight: bold;
+  line-height: 1.05;
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-tagline {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  padding-bottom: 2px;
+  font-size: 11px;
+}
+
+.site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Cuerpo */
+.site-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 196px;
+  gap: 22px;
+  padding: 16px 14px 8px;
+}
+
+.article-main {
+  outline: none;
+}
+
+.article-main .kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.09em;
+}
+
+.article-main h1 {
+  margin: 0 0 6px;
+  font-family: var(--head-font);
+  font-size: 25px;
+  line-height: 1.18;
+}
+
+.article-main .byline {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.article-main .lead {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.article-main h2 {
+  margin: 20px 0 6px;
+  font-family: var(--head-font);
+  font-size: 16px;
+}
+
+.article-main p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+}
+
+.pull-quote {
+  margin: 18px 0;
+  padding: 4px 0 4px 14px;
+  border-left: 3px solid var(--accent);
+  font-family: var(--head-font);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.fact-box {
+  margin: 18px 0;
+  padding: 10px 12px 11px;
+  background: var(--box-bg);
+  border: 1px solid var(--rule);
+}
+
+.fact-box h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fact-box ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.fact-box li {
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+/* Comentarios */
+.comments {
+  margin-top: 24px;
+  padding-top: 4px;
+  border-top: 2px solid var(--rule);
+}
+
+.comment {
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.comment-meta {
+  margin: 0 0 2px !important;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.comment-text {
+  margin: 0 !important;
+}
+
+.comment-form-note {
+  margin-top: 10px !important;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Columna lateral */
+.article-aside {
+  align-self: start;
+  font-size: 11px;
+}
+
+.article-aside h2 {
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--band-rule);
+  font-size: 12px;
+}
+
+.article-aside ul {
+  margin: 0 0 16px;
+  padding-left: 15px;
+}
+
+.article-aside li {
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+
+.aside-box {
+  padding: 9px 10px 10px;
+  background: var(--box-bg);
+  border: 1px solid var(--rule);
+  line-height: 1.4;
+}
+
+.aside-box p {
+  margin: 0 0 7px;
+}
+
+.aside-box-title {
+  font-weight: bold;
+}
+
+.aside-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px;
+}
+
+.aside-form input {
+  min-width: 0;
+  padding: 3px 4px;
+  border: 2px inset #ddd;
+  background: #fff;
+  color: #111;
+  font: inherit;
+}
+
+.aside-form button {
+  padding: 3px 8px;
+  border: 1px solid #8a8a8a;
+  background: linear-gradient(#fdfdfd, #dedede);
+  color: #222;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Pie */
+.site-foot {
+  margin: 10px 14px 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.site-foot p {
+  margin: 0;
+}
+
+.site-foot-url {
+  opacity: 0.7;
+}
+
+/* ---------- Cosmoscopio: revista de divulgación ---------- */
+.article-site--revista {
+  --page-bg: #eef1f5;
+  --band-bg: #123a6b;
+  --band-ink: #fff;
+  --band-rule: #e8720c;
+  --link: #1a4f9c;
+  --accent: #c0560b;
+  --box-bg: #f2f6fb;
+}
+
+.article-site--revista .article-frame {
+  border-left: 1px solid #c9d3de;
+  border-right: 1px solid #c9d3de;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.article-site--revista .site-name {
+  letter-spacing: -0.5px;
+}
+
+.article-site--revista .site-nav {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: bold;
+}
+
+/* ---------- Astronomía Fácil: página personal ---------- */
+.article-site--casero {
+  --page-bg: #4a6fa5;
+  --frame-bg: #fffef4;
+  --band-bg: #dfe9f7;
+  --band-ink: #14315e;
+  --band-rule: #14315e;
+  --link: #0033aa;
+  --accent: #aa3300;
+  --box-bg: #fdf6d8;
+  --rule: #b9b28f;
+  --body-font: Verdana, Geneva, sans-serif;
+  --head-font: Verdana, Geneva, sans-serif;
+
+  padding-top: 12px;
+  font-size: 11px;
+}
+
+.article-site--casero .article-frame {
+  width: 740px;
+  border: 3px double #14315e;
+}
+
+.article-site--casero .site-band {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.article-site--casero .site-name {
+  font-size: 24px;
+}
+
+.article-site--casero .site-nav a {
+  padding: 2px 7px;
+  background: #fff;
+  border: 1px solid #14315e;
+}
+
+.article-site--casero .article-main h1 {
+  font-size: 19px;
+}
+
+.article-site--casero .article-main h2 {
+  padding: 3px 6px;
+  background: #dfe9f7;
+  border-left: 4px solid #14315e;
+  font-size: 13px;
+}
+
+.article-site--casero .article-aside h2,
+.article-site--casero .fact-box h3 {
+  text-transform: none;
+}
+
+/* ---------- Universo Curioso: blog ---------- */
+.article-site--blog {
+  --page-bg: #f4efe6;
+  --frame-bg: #fffdf8;
+  --band-bg: #fffdf8;
+  --band-ink: #3c3123;
+  --band-rule: #c9b899;
+  --ink: #2f2a24;
+  --muted: #877b68;
+  --link: #7a4a12;
+  --accent: #b1560d;
+  --rule: #ddd2bf;
+  --box-bg: #f4eddf;
+  --body-font: 'Trebuchet MS', Tahoma, sans-serif;
+  --head-font: 'Trebuchet MS', Tahoma, sans-serif;
+}
+
+.article-site--blog .article-frame {
+  border-left: 1px solid #e3d9c7;
+  border-right: 1px solid #e3d9c7;
+}
+
+.article-site--blog .site-band {
+  align-items: center;
+}
+
+.article-site--blog .site-name {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.article-site--blog .article-main h1 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.article-site--blog .article-aside ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.article-site--blog .article-aside li {
+  padding: 4px 0;
+  border-bottom: 1px dotted #d9cdb8;
+}
+
+/* ---------- Misterios del Cosmos: fondo estrellado ---------- */
+.article-site--oscuro {
+  --page-bg: #05070f;
+  --frame-bg: rgba(10, 14, 26, 0.86);
+  --band-bg: transparent;
+  --band-ink: #e8ecff;
+  --band-rule: #3a4570;
+  --ink: #d7dcea;
+  --muted: #8d95ad;
+  --link: #8fb4ff;
+  --accent: #ffc46b;
+  --rule: #2b3350;
+  --box-bg: rgba(30, 38, 66, 0.6);
+
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 34% 62%, #cdd6ff, transparent),
+    radial-gradient(1px 1px at 58% 26%, #fff, transparent),
+    radial-gradient(1px 1px at 71% 78%, #bcc8ff, transparent),
+    radial-gradient(1px 1px at 88% 42%, #fff, transparent),
+    radial-gradient(1px 1px at 22% 88%, #fff, transparent),
+    radial-gradient(1px 1px at 47% 8%, #dfe6ff, transparent),
+    radial-gradient(1px 1px at 93% 12%, #fff, transparent);
+  background-attachment: fixed;
+}
+
+.article-site--oscuro .article-frame {
+  border-left: 1px solid #232c48;
+  border-right: 1px solid #232c48;
+}
+
+.article-site--oscuro .site-name {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(150, 180, 255, 0.55);
+}
+
+.article-site--oscuro .aside-form input {
+  border: 1px solid #4a5578;
+  background: #0e1424;
+  color: #d7dcea;
+}
+
+.article-site--oscuro .aside-form button {
+  border: 1px solid #4a5578;
+  background: #1d2540;
+  color: #d7dcea;
+}
+
+/* ---------- Bitácora Estelar: cuaderno personal ---------- */
+.article-site--bitacora {
+  --page-bg: #eef0e6;
+  --frame-bg: #fcfcf7;
+  --band-bg: #4d5f3a;
+  --band-ink: #f2f4e9;
+  --band-rule: #7d9061;
+  --ink: #23241f;
+  --muted: #6f7266;
+  --link: #3c5a24;
+  --accent: #9a5a10;
+  --rule: #cfd3c2;
+  --box-bg: #f0f2e6;
+  --body-font: 'Times New Roman', Times, serif;
+  --head-font: 'Times New Roman', Times, serif;
+
+  font-size: 13px;
+}
+
+.article-site--bitacora .article-frame {
+  width: 720px;
+  border: 1px solid #c3c8b4;
+}
+
+.article-site--bitacora .site-name {
+  font-style: italic;
+}
+
+.article-site--bitacora .site-body {
+  grid-template-columns: minmax(0, 1fr) 172px;
+}
+
+.article-site--bitacora .article-main h1 {
+  font-size: 23px;
+}
+
+.article-site--bitacora .article-aside {
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .article-frame,
+  .article-site--casero .article-frame,
+  .article-site--bitacora .article-frame {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-band {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .site-body,
+  .article-site--bitacora .site-body {
+    grid-template-columns: 1fr;
+  }
+}

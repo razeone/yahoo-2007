@@ -1,4 +1,7 @@
+import { articles } from './articles'
+
 export interface SearchResult {
+  slug: string
   title: string
   snippet: string
   url: string
@@ -59,38 +62,10 @@ export const footerLinks = [
   'Sugerir un sitio',
 ] as const
 
-export const searchResults: SearchResult[] = [
-  {
-    title: 'La increíble forma en la que el sol llegaría al fin de su existencia',
-    snippet:
-      'la tierra podría llegar a explotar a causa de una super nova, esto quiere decir una explosión del sol',
-    url: 'www.cosmoscopio.es/espacio/final-del-sol.html',
-  },
-  {
-    title: '¿Qué ocurrirá cuando el Sol se convierta en una gigante roja?',
-    snippet:
-      'Dentro de miles de millones de años el Sol agotará su combustible y crecerá hasta transformar por completo el sistema solar.',
-    url: 'www.astronomia-facil.net/sistema-solar/gigante-roja.html',
-  },
-  {
-    title: '¿Puede una supernova destruir nuestro planeta?',
-    snippet:
-      'Los astrónomos explican qué distancia tendría que tener una estrella para que su explosión afectara seriamente a la Tierra.',
-    url: 'www.universo-curioso.com/preguntas/supernovas-y-la-tierra.html',
-  },
-  {
-    title: 'El destino de la Tierra y el final del sistema solar',
-    snippet:
-      'Un recorrido por las distintas etapas que atravesarán el Sol, los planetas y sus órbitas durante el futuro lejano.',
-    url: 'www.misteriosdelcosmos.org/articulos/destino-de-la-tierra.html',
-  },
-  {
-    title: 'Cómo explotan las estrellas: guía de supernovas',
-    snippet:
-      'Una explicación sencilla sobre las explosiones estelares, sus causas y los elementos que dejan dispersos en el espacio.',
-    url: 'www.bitacora-estelar.net/guias/como-explotan-las-estrellas.html',
-  },
-]
+/** Los resultados salen de las propias páginas, así nunca se descuadran. */
+export const searchResults: SearchResult[] = articles.map(
+  ({ slug, title, snippet, url }) => ({ slug, title, snippet, url }),
+)
 
 export const relatedQueries = [
   'cómo termina la vida del sol',

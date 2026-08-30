@@ -281,6 +281,11 @@
   font-weight: normal;
 }
 
+/* Enlace ya visitado: el morado de toda la vida. */
+.result-title--visited {
+  color: #6a2f9c;
+}
+
 .result-list p {
   max-width: 510px;
   margin: 2px 0 1px;

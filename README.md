@@ -9,6 +9,32 @@ audiovisual.
 ancho fijo de 760 px, enlaces azules y resultados con URL en verde), no la
 identidad de ninguna empresa real.
 
+## Las páginas de destino
+
+Los cinco resultados de búsqueda no son texto muerto: cada uno abre la página
+completa del sitio ficticio que lo firma, con su propia identidad visual de la
+época. El contenido está en [src/data/articles.ts](src/data/articles.ts) y de
+ahí salen también los resultados del buscador, así que título, extracto y URL no
+pueden descuadrarse.
+
+| Sitio | URL | Aspecto |
+| --- | --- | --- |
+| Cosmoscopio | `cosmoscopio.es` | revista de divulgación, cabecera azul marino |
+| Astronomía Fácil | `astronomia-facil.net` | página personal con contador de visitas |
+| Universo Curioso | `universo-curioso.com` | blog con archivo y comentarios |
+| Misterios del Cosmos | `misteriosdelcosmos.org` | fondo estrellado, asociación amateur |
+| Bitácora Estelar | `bitacora-estelar.net` | cuaderno en serif, categorías y comentarios |
+
+Las cinco comparten el esqueleto de
+[ArticlePage.tsx](src/components/ArticlePage.tsx) y cambian de piel con el campo
+`theme` (`revista`, `casero`, `blog`, `oscuro`, `bitacora`) en
+[ArticlePage.css](src/components/ArticlePage.css).
+
+Rutas: `/` es la portada, `/?q=<consulta>` los resultados y
+`/?q=<consulta>&a=<slug>` una página de destino. Se vuelve a los resultados con
+el botón atrás del navegador, y el enlace ya visitado se queda morado, como
+tocaba entonces.
+
 ## Notas de marca
 
 Para mantener el proyecto libre de marcas registradas:
@@ -19,7 +45,8 @@ Para mantener el proyecto libre de marcas registradas:
 - Nombres de servicios genéricos en castellano (`Mensajería`, `Webs personales`,
   `Guía de empresas`) en lugar de nombres de producto registrados.
 - El aviso de navegador no cita navegadores concretos.
-- Los dominios de los resultados de búsqueda son inventados.
+- Los dominios, autores, publicaciones y comentaristas de las páginas de destino
+  son inventados; ninguno corresponde a un medio o una persona real.
 - Los iconos y assets de terceros que traía la plantilla se han sacado de la
   aplicación (ver `reference/`, carpeta ignorada por git).
 
