@@ -1,33 +1,35 @@
-import { serviceColumns } from '../data/content'
+import { brand } from '../data/brand'
+import { browserNoticeLinks, serviceColumns } from '../data/content'
 import { Footer } from './Footer'
+
+const toAnchor = (label: string) =>
+  `#${label.toLowerCase().replaceAll(' ', '-')}`
 
 export function HomePage() {
   return (
     <>
       <main id="view-content" className="home-page" tabIndex={-1}>
         <aside className="browser-notice">
-          <h1>¿Por qué perderte algo?</h1>
+          <h1>No te pierdas nada</h1>
           <p>
-            Actualiza tu navegador para disfrutar de una experiencia de Yahoo!
-            más rápida y segura.
+            Actualiza tu navegador para disfrutar de {brand.name} con más
+            velocidad y seguridad.
           </p>
           <p className="browser-links">
-            <a href="#internet-explorer">Internet Explorer 7</a>
-            <a href="#firefox">Firefox 2</a>
-            <a href="#safari">Safari 2</a>
-            <a href="#opera">Opera 9</a>
+            {browserNoticeLinks.map((link) => (
+              <a key={link} href={toAnchor(link)}>
+                {link}
+              </a>
+            ))}
           </p>
         </aside>
 
-        <section className="services" aria-label="Servicios de Yahoo">
+        <section className="services" aria-label={`Servicios de ${brand.name}`}>
           <div className="service-grid">
             {serviceColumns.map((column, columnIndex) => (
               <div className="service-column" key={columnIndex}>
                 {column.map((service) => (
-                  <a
-                    key={service}
-                    href={`#${service.toLowerCase().replaceAll(' ', '-')}`}
-                  >
+                  <a key={service} href={toAnchor(service)}>
                     {service}
                   </a>
                 ))}
@@ -35,7 +37,7 @@ export function HomePage() {
             ))}
           </div>
           <a className="all-services" href="#todos-los-servicios">
-            Todos los servicios de Yahoo!
+            Todos los servicios de {brand.name}
           </a>
         </section>
       </main>

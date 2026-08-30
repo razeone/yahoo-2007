@@ -4,14 +4,14 @@ export interface SearchResult {
   url: string
 }
 
-export const serviceColumns = [
+export const serviceColumns: readonly (readonly string[])[] = [
   [
     'Respuestas',
     'Autos',
     'Entretenimiento',
     'Finanzas',
     'Juegos',
-    'GeoCities',
+    'Webs personales',
     'Grupos',
   ],
   [
@@ -21,7 +21,7 @@ export const serviceColumns = [
     'Infantil',
     'Local',
     'Mapas',
-    'Messenger',
+    'Mensajería',
   ],
   [
     'Cine',
@@ -37,10 +37,17 @@ export const serviceColumns = [
     'Televisión',
     'Viajes',
     'Tiempo',
-    'Páginas Amarillas',
-    'Yahoo! Internacional',
+    'Guía de empresas',
+    'Internacional',
     'Más servicios...',
   ],
+]
+
+export const browserNoticeLinks = [
+  'Actualizar el navegador',
+  'Requisitos del sistema',
+  'Consejos de seguridad',
+  'Preguntas frecuentes',
 ] as const
 
 export const footerLinks = [
@@ -57,7 +64,7 @@ export const searchResults: SearchResult[] = [
     title: 'La increíble forma en la que el sol llegaría al fin de su existencia',
     snippet:
       'la tierra podría llegar a explotar a causa de una super nova, esto quiere decir una explosión del sol',
-    url: 'www.ciencia-hoy.es/espacio/final-del-sol.html',
+    url: 'www.cosmoscopio.es/espacio/final-del-sol.html',
   },
   {
     title: '¿Qué ocurrirá cuando el Sol se convierta en una gigante roja?',
@@ -81,7 +88,7 @@ export const searchResults: SearchResult[] = [
     title: 'Cómo explotan las estrellas: guía de supernovas',
     snippet:
       'Una explicación sencilla sobre las explosiones estelares, sus causas y los elementos que dejan dispersos en el espacio.',
-    url: 'www.observatorio-virtual.es/guias/como-explotan-las-estrellas.html',
+    url: 'www.bitacora-estelar.net/guias/como-explotan-las-estrellas.html',
   },
 ]
 

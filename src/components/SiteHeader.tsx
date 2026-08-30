@@ -1,6 +1,7 @@
 import type { FormEvent } from 'react'
+import { brand, brandFullName, logoSrc } from '../data/brand'
 
-interface YahooHeaderProps {
+interface SiteHeaderProps {
   query: string
   resultsMode: boolean
   onQueryChange: (query: string) => void
@@ -8,13 +9,13 @@ interface YahooHeaderProps {
   onHome: () => void
 }
 
-export function YahooHeader({
+export function SiteHeader({
   query,
   resultsMode,
   onQueryChange,
   onSearch,
   onHome,
-}: YahooHeaderProps) {
+}: SiteHeaderProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     onSearch(query)
@@ -26,16 +27,16 @@ export function YahooHeader({
         <a
           className="brand-link"
           href="/"
-          aria-label="Yahoo! España, página principal"
+          aria-label={`${brandFullName}, página principal`}
           onClick={(event) => {
             event.preventDefault()
             onHome()
           }}
         >
-          <img src="/yahoo-logo.png" alt="Yahoo!" width="235" height="50" />
+          <img src={logoSrc} alt={brand.name} width="235" height="50" />
         </a>
-        <nav className="utility-links" aria-label="Cuenta de Yahoo">
-          <a href="#mi-yahoo">Mi Yahoo!</a>
+        <nav className="utility-links" aria-label={`Cuenta de ${brand.name}`}>
+          <a href="#mi-portal">Mi {brand.name}</a>
           <a href="#mi-correo">Mi correo</a>
         </nav>
       </div>

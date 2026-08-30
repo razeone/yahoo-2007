@@ -1,5 +1,7 @@
 :root {
-  --yahoo-blue: #003399;
+  --brand-blue: #003399;
+  --brand-orange: #e8720c;
+  --brand-orange-dark: #b3560f;
   --header-blue: #e7f3fc;
   --header-border: #a9c9e5;
   --gold: #f5d66b;
@@ -140,7 +142,7 @@
 
 .browser-notice h1 {
   margin: 0 0 6px;
-  color: #b32216;
+  color: var(--brand-orange-dark);
   font-size: 15px;
   line-height: 1.15;
 }
@@ -236,7 +238,7 @@
 .results-tabs a.active {
   background: #fff;
   color: #111;
-  border-top: 2px solid #cc0000;
+  border-top: 2px solid var(--brand-orange);
   margin-top: -1px;
 }
 

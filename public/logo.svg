@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="235" height="50" viewBox="0 0 235 50" role="img" aria-label="Vistazú">
+  <title>Vistazú</title>
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a6dc4" />
+      <stop offset="1" stop-color="#0f2f6b" />
+    </linearGradient>
+  </defs>
+  <text
+    x="7"
+    y="36"
+    textLength="192"
+    lengthAdjust="spacingAndGlyphs"
+    font-family="Verdana, Geneva, 'DejaVu Sans', Arial, sans-serif"
+    font-size="37"
+    font-weight="bold"
+    fill="url(#ink)"
+  >vistazú</text>
+  <path d="M8 43.5H200" stroke="#e8720c" stroke-width="3" stroke-linecap="round" />
+  <circle cx="216" cy="29" r="7" fill="#e8720c" />
+</svg>

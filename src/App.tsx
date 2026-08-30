@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { HomePage } from './components/HomePage'
 import { SearchResults } from './components/SearchResults'
-import { YahooHeader } from './components/YahooHeader'
+import { SiteHeader } from './components/SiteHeader'
+import { brand, brandFullName } from './data/brand'
 import './App.css'
 
 const getQuery = () => new URLSearchParams(window.location.search).get('q') ?? ''
@@ -22,7 +23,9 @@ function App() {
   }, [])
 
   useEffect(() => {
-    document.title = query ? `${query} - Yahoo! Search` : 'Yahoo! España'
+    document.title = query
+      ? `${query} - Buscador ${brand.name}`
+      : brandFullName
     document.getElementById('view-content')?.focus({ preventScroll: true })
   }, [query])
 
@@ -48,7 +51,7 @@ function App() {
 
   return (
     <div className={`site-shell${query ? ' site-shell--results' : ''}`}>
-      <YahooHeader
+      <SiteHeader
         query={searchText}
         resultsMode={Boolean(query)}
         onQueryChange={setSearchText}
